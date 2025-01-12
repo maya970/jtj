@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一章：序章</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('./src/img/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 50px;
+      line-height: 1.6;
+    }
+    .nav-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff9800;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .nav-button:hover {
+      background-color: #e68900;
+    }
+  </style>
+</head>
+<body>
+  <h1>第一章：序章</h1>
+  <p>这里是第一章的内容……</p>
+
+  <div id="navigation"></div>
+  <a class="nav-button" href="index.html">返回目录</a>
+
+  <script>
+    function getChapterNumber(filename) {
+      const match = filename.match(/chapter(\d+)\.html/);
+      return match ? parseInt(match[1], 10) : null;
+    }
+
+    const currentPage = window.location.pathname.split('/').pop();
+    const currentChapter = getChapterNumber(currentPage);
+    const navDiv = document.getElementById('navigation');
+
+    if (currentChapter) {
+      if (currentChapter > 1) {
+        const prevLink = document.createElement('a');
+        prevLink.href = `chapter${currentChapter - 1}.html`;
+        prevLink.className = 'nav-button';
+        prevLink.textContent = '上一章';
+        navDiv.appendChild(prevLink);
+      }
+      const nextLink = document.createElement('a');
+      nextLink.href = `chapter${currentChapter + 1}.html`;
+      nextLink.className = 'nav-button';
+      nextLink.textContent = '下一章';
+      navDiv.appendChild(nextLink);
+    }
+  </script>
+</body>
+</html>
