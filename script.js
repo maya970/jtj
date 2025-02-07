@@ -24,61 +24,35 @@ $(document).ready(function () {
                 }
             }
         ]
+    }).on('init afterChange', function (event, slick, currentSlide) {
+        updateCenterEffect();
+        updateInfoText(currentSlide || 0);
+        updateThumbnail(currentSlide || 0);
     });
 
-    // **监听轮播切换，更新右侧介绍**
-    $('.main-carousel').on('afterChange', function(event, slick, currentSlide){
-        $('#info-title, #info-text').fadeOut(200, function() {
-            $('#info-title').text(descriptions[currentSlide].title);
-            $('#info-text').text(descriptions[currentSlide].text);
+    // **更新右侧信息栏**
+    function updateInfoText(index) {
+        $('#info-title, #info-text').fadeOut(200, function () {
+            $('#info-title').text(descriptions[index].title);
+            $('#info-text').text(descriptions[index].text);
             $('#info-title, #info-text').fadeIn(200);
         });
-    });
+    }
 
-    // **点击缩略图切换**
-    $('.thumbnail-item').click(function(){
-        var index = $(this).index();
-        $('.main-carousel').slick('slickGoTo', index);
-        $('.thumbnail-item').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    // **确保缩略图同步**
-    $('.main-carousel').on('afterChange', function(event, slick, currentSlide){
-        $('.thumbnail-item').removeClass('active').eq(currentSlide).addClass('active');
-    });
-});
-
-
-    // **确保 Slick 布局不受影响**
-    $('.main-carousel').on('init', function () {
-        updateCenterEffect();
-    });
+    // **更新缩略图的高亮状态**
+    function updateThumbnail(index) {
+        $('.thumbnail-item').removeClass('active').eq(index).addClass('active');
+    }
 
     // **修正轮播主次关系**
     function updateCenterEffect() {
-        $('.slick-slide .carousel-item').removeClass('active-slide');  
-        $('.slick-slide').css('opacity', '0.4').css('transform', 'scale(0.8)');
-
-        $('.slick-current .carousel-item').addClass('active-slide');  
-        $('.slick-current').css('opacity', '1').css('transform', 'scale(1)');
+        $('.slick-slide').css({ opacity: '0.4', transform: 'scale(0.8)' });
+        $('.slick-current').css({ opacity: '1', transform: 'scale(1)' });
     }
 
-    // **监听轮播变化，确保主次关系更新**
-    $('.main-carousel').on('afterChange', function () {
-        updateCenterEffect();
-    });
-
-    // **点击缩略图，切换到对应主轮播**
-    $('.thumbnail-item').click(function(){
+    // **点击缩略图切换轮播**
+    $('.thumbnail-item').click(function () {
         var index = $(this).index();
         $('.main-carousel').slick('slickGoTo', index);
-        $('.thumbnail-item').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    // **主轮播切换时，同步缩略图**
-    $('.main-carousel').on('afterChange', function(event, slick, currentSlide){
-        $('.thumbnail-item').removeClass('active').eq(currentSlide).addClass('active');
     });
 });
