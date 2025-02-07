@@ -110,28 +110,39 @@ body {
 }
 
 /* 轮播项 */
+.slick-slide {
+    position: relative; /* 避免重叠 */
+    z-index: 1; /* 让普通项在下方 */
+    transition: all 0.5s ease-in-out;
+    margin: 0 10px; /* 增加间距，避免相互重叠 */
+}
+
 .carousel-item {
     width: 840px;
     height: 450px;
     border-radius: 10px;
-    position: relative;
-    overflow: visible; /* 允许完整显示 */
+    overflow: visible;
+    opacity: 0.6;
+    transform: scale(0.9);
     transition: all 0.5s ease-in-out;
-    opacity: 0.6; /* 让非当前项透明度降低 */
-    transform: scale(0.9); /* 让非当前项稍小 */
 }
 
 /* 让当前轮播项更突出 */
+.slick-center {
+    z-index: 10; /* 提高 z-index，确保在最上层 */
+}
+
 .slick-center .carousel-item {
     opacity: 1;
     transform: scale(1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* 取消非当前项模糊 */
+/* 取消非当前项模糊，防止它影响高亮 */
 .slick-slide:not(.slick-center) .carousel-item {
     filter: none;
 }
+
 
 /* 缩略图导航 */
 .thumbnail-nav {
