@@ -80,57 +80,57 @@ body {
     text-decoration: underline;
 }
 
-/* 页脚 */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-}
-
 /* 轮播区域 */
 .dengeki-carousel {
     background: linear-gradient(135deg, #e60012 30%, #ffffff 100%);
     padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
 }
 
+/* 轮播容器 */
 .main-carousel {
-    max-width: 1200px;
-    width: 90%;
+    max-width: 840px;
+    width: 100%;
     margin: auto;
     overflow: hidden;
     padding: 20px;
     position: relative;
 }
 
-.slick-slide {
-    padding: 0 10px;
-}
-
-.carousel-item {
-    transform: scale(0.8);
-    opacity: 0.4;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    width: 100%;
-    height: 450px;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
+/* 确保轮播项不会重叠 */
 .slick-track {
     display: flex !important;
+    align-items: center;
+    justify-content: center;
 }
 
+/* 轮播项 */
+.carousel-item {
+    width: 840px;
+    height: 450px;
+    border-radius: 10px;
+    position: relative;
+    overflow: visible; /* 允许完整显示 */
+    transition: all 0.5s ease-in-out;
+    opacity: 0.6; /* 让非当前项透明度降低 */
+    transform: scale(0.9); /* 让非当前项稍小 */
+}
+
+/* 让当前轮播项更突出 */
 .slick-center .carousel-item {
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* 取消非当前项模糊 */
 .slick-slide:not(.slick-center) .carousel-item {
-    filter: blur(2px);
+    filter: none;
 }
 
 /* 缩略图导航 */
@@ -164,18 +164,12 @@ footer {
 
 /* 响应式适配 */
 @media (max-width: 1024px) {
-    .main-carousel {
-        padding: 15px;
-    }
     .carousel-item {
         height: 400px;
     }
 }
 
 @media (max-width: 768px) {
-    .main-carousel {
-        padding: 10px;
-    }
     .carousel-item {
         height: 300px;
     }
@@ -210,46 +204,3 @@ footer {
         height: 40px;
     }
 }
-
-.dengeki-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
-}
-
-.main-carousel {
-    width: 65%;
-}
-
-.carousel-info {
-    width: 30%;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.carousel-info h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.carousel-info p {
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-.slick-slide {
-    opacity: 0.4;
-    transform: scale(0.8);
-    transition: all 0.3s ease-in-out;
-}
-
-.slick-current {
-    opacity: 1;
-    transform: scale(1);
-}
-
