@@ -17,6 +17,11 @@ $(document).ready(function(){
         ]
     });
 
+    // 确保 Slick 正确计算宽度，避免轮播项重叠
+    $('.main-carousel').on('setPosition', function() {
+        $('.slick-slide').css('width', $('.main-carousel').width() / 3);
+    });
+
     // 缩略图导航联动
     $('.thumbnail-item').click(function(){
         var index = $(this).index();
