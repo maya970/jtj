@@ -247,3 +247,65 @@ footer {
     transition: all 0.5s ease;
 }
 
+.main-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 确保轮播项正确排列 */
+.slick-slide {
+    display: block !important; /* 保持 Slick 的默认行为 */
+    text-align: center;
+}
+
+/* 轮播轨道不要强行 `display: flex` */
+.slick-track {
+    display: block !important;
+}
+
+/* 让两侧项变小，中心项放大 */
+.slick-slide .carousel-item {
+    transform: scale(0.8);
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+/* **当前中心项放大 & 清晰** */
+.slick-slide.slick-center .carousel-item {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+/* **缩略图样式** */
+.thumbnail-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.thumbnail-item {
+    width: 100px;
+    height: 60px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* **激活状态的缩略图** */
+.thumbnail-item.active {
+    border-color: #e60012;
+    transform: translateY(-10px);
+}
+
+/* **整体轮播容器优化** */
+.main-carousel {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
