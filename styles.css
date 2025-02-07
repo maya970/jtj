@@ -231,3 +231,19 @@ footer {
         height: 40px;
     }
 }
+
+/* 额外增加默认的中心项放大 */
+.slick-center-effect {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 让两侧的项缩小并模糊 */
+.slick-slide:not(.slick-center) .carousel-item {
+    transform: scale(0.8);
+    opacity: 0.4;
+    filter: blur(2px);
+    transition: all 0.5s ease;
+}
+
