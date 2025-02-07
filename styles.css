@@ -92,6 +92,7 @@ body {
     width: 90%;
     margin: 0 auto;
     position: relative;
+    border: 2px solid #fff; /* 2px宽度的黑色实线边框 */
 }
 
 /* 轮播容器 */
