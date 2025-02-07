@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    let descriptions = [
+        { title: "新刊情報", text: "这里是第一张图片的介绍文字。" },
+        { title: "レジェンドセレクション", text: "这里是第二张图片的介绍文字。" },
+        { title: "キャンペーン", text: "这里是第三张图片的介绍文字。" }
+    ];
+
     $('.main-carousel').slick({
         centerMode: true,  
         centerPadding: '60px',
@@ -19,6 +25,30 @@ $(document).ready(function () {
             }
         ]
     });
+
+    // **监听轮播切换，更新右侧介绍**
+    $('.main-carousel').on('afterChange', function(event, slick, currentSlide){
+        $('#info-title, #info-text').fadeOut(200, function() {
+            $('#info-title').text(descriptions[currentSlide].title);
+            $('#info-text').text(descriptions[currentSlide].text);
+            $('#info-title, #info-text').fadeIn(200);
+        });
+    });
+
+    // **点击缩略图切换**
+    $('.thumbnail-item').click(function(){
+        var index = $(this).index();
+        $('.main-carousel').slick('slickGoTo', index);
+        $('.thumbnail-item').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    // **确保缩略图同步**
+    $('.main-carousel').on('afterChange', function(event, slick, currentSlide){
+        $('.thumbnail-item').removeClass('active').eq(currentSlide).addClass('active');
+    });
+});
+
 
     // **确保 Slick 布局不受影响**
     $('.main-carousel').on('init', function () {
