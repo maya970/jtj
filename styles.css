@@ -210,3 +210,46 @@ footer {
         height: 40px;
     }
 }
+
+.dengeki-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main-carousel {
+    width: 65%;
+}
+
+.carousel-info {
+    width: 30%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-info h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.carousel-info p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.slick-slide {
+    opacity: 0.4;
+    transform: scale(0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+.slick-current {
+    opacity: 1;
+    transform: scale(1);
+}
+
