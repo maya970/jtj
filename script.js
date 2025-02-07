@@ -26,17 +26,11 @@ $(document).ready(function () {
         ]
     }).on('init afterChange', function (event, slick, currentSlide) {
         updateCenterEffect();
-        animateInfoBox(currentSlide || 0);
+        updateInfoText(currentSlide || 0);
         updateThumbnail(currentSlide || 0);
     });
 
-    function animateInfoBox(index) {
-        $('#info-box').animate({ left: '-10px', opacity: 0 }, 200, function () {
-            updateInfoText(index);
-            $(this).css({ left: '10px' }).animate({ left: '0px', opacity: 1 }, 200);
-        });
-    }
-
+    // **更新右侧信息栏**
     function updateInfoText(index) {
         $('#info-title, #info-text').fadeOut(200, function () {
             $('#info-title').text(descriptions[index].title);
@@ -45,15 +39,18 @@ $(document).ready(function () {
         });
     }
 
+    // **更新缩略图的高亮状态**
     function updateThumbnail(index) {
         $('.thumbnail-item').removeClass('active').eq(index).addClass('active');
     }
 
+    // **修正轮播主次关系**
     function updateCenterEffect() {
         $('.slick-slide').css({ opacity: '0.4', transform: 'scale(0.8)' });
         $('.slick-current').css({ opacity: '1', transform: 'scale(1)' });
     }
 
+    // **点击缩略图切换轮播**
     $('.thumbnail-item').click(function () {
         var index = $(this).index();
         $('.main-carousel').slick('slickGoTo', index);
