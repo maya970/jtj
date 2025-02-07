@@ -82,7 +82,7 @@ body {
 
 /* 轮播区域 */
 .dengeki-carousel {
-    background: linear-gradient(135deg, #e60012 30%, #ffffff 100%);
+    background: linear-gradient(135deg, #e60012 30%, #ffffff 100%), url('back.jpg');
     padding: 40px 0;
     display: flex;
     justify-content: center;
