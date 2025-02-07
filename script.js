@@ -1,42 +1,45 @@
 $(document).ready(function () {
     $('.main-carousel').slick({
-        centerMode: true,  // 启用中心模式
-        centerPadding: '60px', // 两侧可见部分
-        slidesToShow: 3,  // 轮播显示的数量
-        autoplay: true,  // 自动播放
-        autoplaySpeed: 3000, // 自动播放间隔
-        infinite: true,  // 无限循环
-        dots: true, // 显示指示点
+        centerMode: true,  
+        centerPadding: '60px',
+        slidesToShow: 3,  
+        autoplay: true,  
+        autoplaySpeed: 3000,  
+        infinite: true,  
+        dots: true,  
         prevArrow: '<button class="slick-prev">←</button>',
         nextArrow: '<button class="slick-next">→</button>',
         responsive: [
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 1,  // 小屏幕时只显示1个
+                    slidesToShow: 1,  
                     centerPadding: '40px'
                 }
             }
         ]
     });
 
-    // **解决默认状态无主次问题**
+    // **确保 Slick 布局不受影响**
+    $('.main-carousel').on('init', function () {
+        updateCenterEffect();
+    });
+
+    // **修正轮播主次关系**
     function updateCenterEffect() {
-        $('.slick-slide').removeClass('slick-center-effect'); // 清除旧的
-        $('.slick-center .carousel-item').addClass('slick-center-effect'); // 只给当前中心的加
+        $('.slick-slide .carousel-item').removeClass('active-slide');  
+        $('.slick-slide').css('opacity', '0.4').css('transform', 'scale(0.8)');
+
+        $('.slick-current .carousel-item').addClass('active-slide');  
+        $('.slick-current').css('opacity', '1').css('transform', 'scale(1)');
     }
 
-    // 初始加载时，给默认中心项添加放大效果
-    updateCenterEffect();
-
-    // 监听轮播变化，更新主次
+    // **监听轮播变化，确保主次关系更新**
     $('.main-carousel').on('afterChange', function () {
         updateCenterEffect();
     });
-});
 
-
-    // 点击缩略图时，切换到对应的主轮播图
+    // **点击缩略图，切换到对应主轮播**
     $('.thumbnail-item').click(function(){
         var index = $(this).index();
         $('.main-carousel').slick('slickGoTo', index);
@@ -44,19 +47,8 @@ $(document).ready(function () {
         $(this).addClass('active');
     });
 
-    // 轮播切换时，缩略图同步 & 视觉主次变化
+    // **主轮播切换时，同步缩略图**
     $('.main-carousel').on('afterChange', function(event, slick, currentSlide){
         $('.thumbnail-item').removeClass('active').eq(currentSlide).addClass('active');
-
-        // 移除所有的主次效果
-        $('.slick-slide .carousel-item').removeClass('active-slide');
-        $('.slick-slide').css('opacity', '0.4').css('transform', 'scale(0.8)');
-
-        // 让当前显示的图片放大、清晰
-        $('.slick-current .carousel-item').addClass('active-slide');
-        $('.slick-current').css('opacity', '1').css('transform', 'scale(1)');
     });
-
-    // 初始化时确保第一个主图是放大的
-    $('.slick-current .carousel-item').addClass('active-slide');
 });
