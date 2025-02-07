@@ -1,22 +1,40 @@
-$(document).ready(function(){
-    // 主轮播配置
+$(document).ready(function () {
     $('.main-carousel').slick({
-        centerMode: true,     // 让中间的图片放大
-        centerPadding: '0',   // 让滑动到中间时对齐
-        slidesToShow: 3,      // 一次显示 3 张
-        focusOnSelect: true,  // 点击选中
-        arrows: false,        // 隐藏箭头
-        infinite: true,       // 循环播放
+        centerMode: true,  // 启用中心模式
+        centerPadding: '60px', // 两侧可见部分
+        slidesToShow: 3,  // 轮播显示的数量
+        autoplay: true,  // 自动播放
+        autoplaySpeed: 3000, // 自动播放间隔
+        infinite: true,  // 无限循环
+        dots: true, // 显示指示点
+        prevArrow: '<button class="slick-prev">←</button>',
+        nextArrow: '<button class="slick-next">→</button>',
         responsive: [
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 1, 
-                    centerMode: true
+                    slidesToShow: 1,  // 小屏幕时只显示1个
+                    centerPadding: '40px'
                 }
             }
         ]
     });
+
+    // **解决默认状态无主次问题**
+    function updateCenterEffect() {
+        $('.slick-slide').removeClass('slick-center-effect'); // 清除旧的
+        $('.slick-center .carousel-item').addClass('slick-center-effect'); // 只给当前中心的加
+    }
+
+    // 初始加载时，给默认中心项添加放大效果
+    updateCenterEffect();
+
+    // 监听轮播变化，更新主次
+    $('.main-carousel').on('afterChange', function () {
+        updateCenterEffect();
+    });
+});
+
 
     // 点击缩略图时，切换到对应的主轮播图
     $('.thumbnail-item').click(function(){
