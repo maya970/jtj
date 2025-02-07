@@ -83,6 +83,8 @@ body {
 /* 轮播区域 */
 .dengeki-carousel {
     background: linear-gradient(135deg, rgba(230, 0, 18, 0) 0%, rgba(255, 255, 255, 1) 100%), url('back.jpg');
+    background-size: cover; /* 让图片覆盖整个背景并保持比例 */
+    background-position: center; /* 图片居中显示 */
     padding: 40px 0;
     display: flex;
     justify-content: center;
