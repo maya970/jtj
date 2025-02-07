@@ -20,42 +20,116 @@
     </nav>
 
     <!-- 主视觉图 -->
-    <header class="main-visual">
-        <img src="main-visual.jpg" alt="主视觉图">
+    <header class="g-header -top">
+        <div class="g-header-desktop-nav">
+            <div class="container">
+                <div class="g-header-desktop-nav__inner">
+                    <div class="g-header-desktop-nav__title -top">
+                        <p class="g-header-desktop-nav__title-side -top">
+                            <span>毎</span><span>月</span><span>10</span><span>日</span><span>発</span><span>売</span>
+                        </p>
+                        <h1 class="g-header-desktop-nav__title-main">
+                            <a href="https://dengekibunko.jp/">
+                                <img src="/themes/dengekibunko/images/global/icon-lightning.svg" alt="" width="77" height="78.8" class="icon">
+                                <img src="/themes/dengekibunko/images/global/logo.svg" alt="電撃文庫・電撃の新文芸公式サイト" width="174" class="logo">
+                            </a>
+                        </h1>
+                        <p class="g-header-desktop-nav__title-bottom -top">
+                            <img src="/themes/dengekibunko/images/global/text-official-website.svg" alt="OFFICIAL WEBSITE">
+                        </p>
+                    </div>
+                    <div class="g-header-desktop-nav__contents -top">
+                        <div class="g-header-desktop-nav__topics">
+                            <form action="/search.html" method="post" name="searchForm" class="c-search-header__form -top" role="search" aria-label="検索フォーム">
+                                <div class="c-search-header__action">
+                                    <span class="fa fa-search" aria-hidden="true"></span>
+                                    <input type="search" id="searchForm" name="keyword" value="" size="15" class="c-search-header__input" placeholder="書籍検索">
+                                    <button type="submit" name="ACMS_POST_2GET" class="c-search-header__btn">search</button>
+                                </div>
+                            </form>
+                            <a href="https://dengekibunko.jp/product/search.html" class="g-header-desktop-nav__link">詳細検索</a>
+                            <ul class="c-list-sns list-unstyled -row -header -top">
+                                <li class="c-list-sns__item"><a href="http://www.facebook.com/share.php?u=https://dengekibunko.jp/" rel="noopener noreferrer" onclick="window.open(encodeURI(decodeURI(this.href)),'fbwindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1'); return false;" class="c-list-sns__link -facebook" target="_blank">シェア</a></li>
+                                <li class="c-list-sns__item"><a href="https://twitter.com/share?url=https://dengekibunko.jp/" class="c-list-sns__link -x js-twitter-link" target="_blank" rel="noopener noreferrer"><span>ポスト</span></a></li>
+                                <li class="c-list-sns__item"><a href="http://line.me/R/msg/text/?https://dengekibunko.jp/" class="c-list-sns__link -line" target="_blank" rel="noopener noreferrer">送る</a></li>
+                                <li class="c-list-sns__item"><a href="http://b.hatena.ne.jp/add?mode=confirm&amp;url=https://dengekibunko.jp/&amp;title=電撃文庫・電撃の新文芸公式サイト" class="c-list-sns__link -hatena" target="_blank" rel="noopener noreferrer">はてブ</a></li>
+                            </ul>
+                        </div>
+                        <div class="g-header-desktop-nav__menu">
+                            <nav class="g-header__navbar" aria-label="メインメニュー">
+                                <ul class="js-header">
+                                    <li>
+                                        <a href="https://dengekibunko.jp/" class="js-viewing-indelible">
+                                            <img src="/archives/001/202308/52add5170c29d2735c82b6203525c0ce.png" width="229" height="57" alt="電撃文庫">
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="https://dengekibunko.jp/product/newrelease-bunko.html" class="js-viewing-indelible">
+                                                    <img src="/archives/001/202308/d2bb4b7b66e979be71adcdf2c5ab6e1e.png" width="56" height="56" alt="">
+                                                    <span>新刊情報</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://dengekibunko.jp/product/2025/02/" class="js-viewing-indelible">
+                                                    <img src="/archives/001/202308/2c44a5a3d42fd4b6f9ba5d8be63805c9.png" width="56" height="56" alt="">
+                                                    <span>書籍情報</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.youtube.com/@bunko_dengeki" class="js-viewing-indelible" rel="noopener noreferrer" target="_blank">
+                                                    <img src="/archives/001/202308/0a20c5f6ed02f6f29a39bc6062a402ad.png" width="56" height="56" alt="">
+                                                    <span>電撃文庫チャンネル</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://dengekibunko.jp/product/popular.html" class="js-viewing-indelible">
+                                                    <img src="/archives/001/202308/9c523c7789f1244825107912f858fccb.png" width="56" height="56" alt="">
+                                                    <span>人気作品</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- 轮播图 -->
-    <section class="carousel">
-        <div class="carousel-container">
-            <div class="slide"><img src="slide1.jpg" alt="轮播图1"></div>
-            <div class="slide"><img src="slide2.jpg" alt="轮播图2"></div>
-            <div class="slide"><img src="slide3.jpg" alt="轮播图3"></div>
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </section>
+    <!-- 主内容 -->
+    <main>
+        <section class="p-main-visual">
+            <div class="slick-slider">
+                <!-- 这里放置轮播图内容 -->
+            </div>
+        </section>
 
-    <!-- 新闻更新 -->
-    <section class="news" id="news">
-        <h2>新闻更新</h2>
-        <ul>
-            <li>最新小说发布公告</li>
-            <li>活动与签售会信息</li>
-            <li>电击文库改编动画动态</li>
-        </ul>
-    </section>
+        <section class="p-main-news">
+            <div class="p-main-news__inner">
+                <div class="p-main-news__heading">
+                    <span class="ico ico-info"></span>
+                    <span>新着</span>
+                    <span class="sm">NEWS</span>
+                </div>
+                <ul class="p-main-news-list list-unstyled">
+                    <li class="p-main-news-list__item">
+                        <span class="p-main-news-list__info">
+                            <span class="p-main-news-list__category">お知らせ</span>2024. 12/18
+                        </span>
+                        <a href="https://dengekibunko.jp/notice/entry-36415.html" class="p-main-news-list__link">
+                            <span>電撃文庫・電撃の新文芸公式HP、ならびに電撃ノベコミ＋の長期間にわたる閲覧障害のお詫びと復旧についてのお知らせ</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-    <!-- 新刊信息 -->
-    <section class="new-releases" id="releases">
-        <h2>新刊信息</h2>
-        <div class="release-item">
-            <img src="book1.jpg" alt="新刊封面">
-            <p>《某科学的超电磁炮》最新卷</p>
-        </div>
-        <div class="release-item">
-            <img src="book2.jpg" alt="新刊封面">
-            <p>《刀剑神域》最新卷</p>
-        </div>
-    </section>
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 电击文库. All rights reserved.</p>
+    </footer>
 </body>
 </html>
